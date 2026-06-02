@@ -1,8 +1,8 @@
 # Sistema Predictivo de Demanda mediante Aprendizaje Automático para Optimización de Inventarios en Pequeñas Empresas
 
-**Autores:** Carlos Alejandro Arcia Miranda , Jorge Alejandro Mejias Martinez  
+**Autores:** Carlos Alejandro Arcia Miranda , Jorge Alejandro Mejias Martinez , Nelson Guillermo Fernández Roca
 **Fecha:** Junio 2026  
-**Palabras clave:** Random Forest, predicción de demanda, gestión de inventarios, machine learning, PYMES.
+**Palabras clave:** Random Forest, predicción de demanda, gestión de inventarios, machine learning,MYPPYMES.
 
 ---
 
@@ -18,7 +18,7 @@ En América Latina y el Caribe, más del 90 % de las unidades económicas son mi
 
 El avance del aprendizaje automático (machine learning) ha brindado herramientas accesibles para la predicción de series temporales, permitiendo a cualquier negocio, sin grandes inversiones, estimar la demanda futura a partir de sus propios datos históricos. El presente artículo propone un sistema predictivo basado en el algoritmo Random Forest, un método de ensemble que ha demostrado gran robustez en tareas de regresión con pocas variables y relaciones no lineales.
 
-El problema concreto que se aborda es el de una panadería típica que necesita decidir cuántas unidades de pan francés, pan dulce, galletas y pastel debe producir o comprar diariamente, evitando tanto el faltante como el desperdicio. Se plantea el desarrollo de un modelo que, usando únicamente el día de la semana y el mes, sea capaz de predecir la cantidad vendida con un margen de error aceptable para el nivel operativo de una Pyme. La elección de variables accesibles y de un modelo interpretable busca facilitar la adopción por parte de administradores sin formación técnica avanzada.
+El problema concreto que se aborda es el de una panadería típica que necesita decidir cuántas unidades de pan francés, pan dulce, galletas y pastel debe producir o comprar diariamente, evitando tanto el faltante como el desperdicio. Se plantea el desarrollo de un modelo que, usando únicamente el día de la semana y el mes, sea capaz de predecir la cantidad vendida con un margen de error aceptable para el nivel operativo de una MYPYME. La elección de variables accesibles y de un modelo interpretable busca facilitar la adopción por parte de administradores sin formación técnica avanzada.
 
 El resto del artículo se estructura de la siguiente manera: en la Sección 2 se revisan trabajos relacionados que utilizan machine learning para pronóstico de demanda en inventarios. La Sección 3 describe la metodología, incluyendo la generación del dataset, el preprocesamiento y la configuración del modelo. La Sección 4 presenta los resultados experimentales y las métricas de evaluación. En la Sección 5 se discute el impacto social y las limitaciones, y finalmente la Sección 6 expone las conclusiones y líneas de trabajo futuro.
 
@@ -28,7 +28,7 @@ El resto del artículo se estructura de la siguiente manera: en la Sección 2 se
 
 La aplicación de técnicas de aprendizaje automático a la gestión de inventarios ha sido ampliamente estudiada en las últimas dos décadas. Gopalakrishnan (2020) realizó un caso de estudio donde comparó redes neuronales profundas y modelos de boosting para predecir la demanda de productos en una cadena minorista, encontrando que los métodos de ensemble ofrecían un excelente balance entre precisión y costo computacional. Por su parte, Makridakis, Spiliotis y Assimakopoulos (2018) evaluaron métodos estadísticos clásicos frente a algoritmos de machine learning en series de demanda intermitente, concluyendo que Random Forest y Gradient Boosting superaban consistentemente a los modelos ARIMA cuando existían patrones no lineales.
 
-En el ámbito específico de las PYMES, Roy y Maiti (2020) propusieron un modelo de inventario difuso con demanda dependiente del stock, pero no exploraron la predicción automática de dicha demanda. La combinación de lógica difusa para decisiones de reabastecimiento con predicciones de machine learning aún es un área con poca literatura aplicada, lo que motiva el presente trabajo como un módulo intermedio dentro de un ecosistema mayor de inteligencia artificial para negocios pequeños.
+En el ámbito específico de las MYPYMES, Roy y Maiti (2020) propusieron un modelo de inventario difuso con demanda dependiente del stock, pero no exploraron la predicción automática de dicha demanda. La combinación de lógica difusa para decisiones de reabastecimiento con predicciones de machine learning aún es un área con poca literatura aplicada, lo que motiva el presente trabajo como un módulo intermedio dentro de un ecosistema mayor de inteligencia artificial para negocios pequeños.
 
 El algoritmo Random Forest, introducido por Breiman (2001), ha sido utilizado exitosamente en múltiples dominios gracias a su capacidad para manejar datos ruidosos, evitar el sobreajuste mediante el promedio de múltiples árboles y proporcionar una medida de importancia de variables. En nuestro caso, se opta por este modelo por su interpretabilidad y su buen desempeño incluso con datasets de tamaño reducido, características cruciales para la adopción en el sector microempresarial.
 
