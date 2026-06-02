@@ -1,8 +1,8 @@
-import pandas as pd
-import numpy as np
+import csv
+import random
 from datetime import datetime, timedelta
 
-np.random.seed(42)
+random.seed(42)
 fechas = []
 productos = []
 ventas = []
@@ -21,8 +21,8 @@ for i in range(365):
         # Efecto mes (diciembre más ventas)
         mes = fecha.month
         factor_mes = 1.3 if mes == 12 else 1.0
-        # Ruido aleatorio
-        ruido = np.random.normal(0, 0.1)
+        # Ruido aleatorio (distribución normal simulada)
+        ruido = sum(random.gauss(0, 0.1) for _ in range(1))
         venta = max(0, int(base * factor_dia * factor_mes * (1 + ruido)))
         
         fechas.append(fecha.strftime('%Y-%m-%d'))
@@ -31,12 +31,15 @@ for i in range(365):
         dias_semana.append(dia)
         meses.append(mes)
 
-df = pd.DataFrame({
-    'fecha': fechas,
-    'producto': productos,
-    'dia_semana': dias_semana,
-    'mes': meses,
-    'ventas': ventas
-})
-df.to_csv('../dataset/ventas_panaderia.csv', index=False)
+# Crear directorio si no existe
+import os
+os.makedirs('../dataset', exist_ok=True)
+
+# Guardar como CSV
+with open('../dataset/ventas_panaderia.csv', 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['fecha', 'producto', 'dia_semana', 'mes', 'ventas'])
+    for i in range(len(fechas)):
+        writer.writerow([fechas[i], productos[i], dias_semana[i], meses[i], ventas[i]])
+
 print("Dataset generado: dataset/ventas_panaderia.csv")
